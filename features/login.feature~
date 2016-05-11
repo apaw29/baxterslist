@@ -1,0 +1,12 @@
+Feature:
+Each user needs to login using the credentials he used to register with the system.
+As a user
+So that I can use the website to buy or sell an item
+I want to login to the system
+
+Scenario:Login
+Given I am on http://localhost:3000/static_pages/login
+Given I fill in "emailid" with "apawar2@binghamton.edu"
+Given I fill in "password" with "1234"
+When I press "Login"
+Then show me the Menu page

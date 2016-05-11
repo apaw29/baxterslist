@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    %h1.title Baxter's List!
+    #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+        .nav.pull-right
+          - if current_user
+            %ul
+              %li= current_user.email
+              %li= link_to "Log out", logout_path, method: "delete"
+          - else
+            %ul
+              %li
+                = link_to "Login", 'login'
+              %li
+                = link_to "Signup", 'signup'
+    = yield

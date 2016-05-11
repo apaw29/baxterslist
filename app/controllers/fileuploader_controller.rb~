@@ -1,0 +1,31 @@
+class FileUploaderController < ApplicationController
+  def index
+	@fileuploader = FileUploader.all
+  end
+
+  def new
+	@fileuploader = FileUploader.new
+  end
+
+  def create
+	@fileuploader = FileUploader.new(fileuploader_params)
+	
+	if @fileuploader.save
+		redirect_to fileuploader_path, notice: "The file #{@fileuploader.name}  has been uploaded."
+	else
+		render "new"
+	end
+  end
+
+  def destroy
+	@fileuploader = FileUploader.find(params[:id])
+	@fileuploader.destroy
+	redirect_to fileuploader_path, notice: "The file #{@fileuploader.name} has been deleted."
+  end
+
+  private
+	def resume_params
+	params.require(:resume).permit(:name, :attachment)
+  end
+	
+end

@@ -1,0 +1,12 @@
+<body bgcolor="339966">
+<h1>BUDeal$ MENU</h1>
+
+<form action="http://localhost:3000/deals" method="link">
+<p style="text-align: center;"><input height="500" type="submit" value="DISPLAY DEALS" width="500" />&nbsp;</p>
+</form>
+
+<form action="http://localhost:3000/deals/new" method="link">
+<p style="text-align: center;"><input height="500" type="submit" value="CREATE DEALS" width="500" />&nbsp;</p>
+</form>
+
+</form>

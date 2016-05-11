@@ -1,0 +1,15 @@
+-# in app/views/deals/cdeals.html.haml
+%h1 Create New Deal
+
+= form_tag cdeals_path, :method => :post do
+
+  = label :deal, :category, 'CATEGORY'
+  = select :deal, :category, ['Books','Electronics','Housing','Others']
+
+  = label :deal, :name, 'Name'
+  = text_field :deal, :name
+
+  = label :deal, :description, 'Description'
+  = text_field :deal, :description
+
+  = submit_tag 'Save Changes'

@@ -1,0 +1,47 @@
+%h1 List of Ads!
+
+Logged in as:  
+= current_user.email            
+= link_to "Logout", logout_path, method: "destroy"
+
+= form_tag deals_path, :method => :get, :id => 'category_form' do
+  = hidden_field_tag "title_sort", true if @title_header
+  = hidden_field_tag ":price_sort", true if @price_header 
+  = hidden_field_tag ":postdate_sort", true if @postdate_at_header
+  Select Category: 
+  - @all_category.each do |category|
+    = category
+    = check_box_tag "category[#{category}]", 1, @selected_category.include?(category), :id => "category_#{category}"
+  = submit_tag 'Display Ad', :id => 'category_submit'
+%p
+%table#deals
+  %thead
+    %tr  
+      %th Category
+      %th{:class => @created_at_header}= link_to 'Post Date', deals_path(:sort => 'created_at', :category => @selected_category), :id => 'created_at_header'  
+      %th{:class => @title_header}= link_to 'Title', deals_path(:sort => 'title', :category => @selected_category), :id => 'title_header'
+      %th Description 
+      %th{:class => @price_header}= link_to 'Price', deals_path(:sort => 'price', :category => @selected_category), :id => 'price_header'         
+      %th Details
+  %tbody
+    - @deals.each do |deal|
+      %tr
+        %td= deal.category
+        %td= deal.created_at
+        %td= deal.title 
+        %td= deal.description
+        %td= deal.price
+        %td= link_to "More about #{deal.title}", deal_path(deal)
+%p
+%p
+%p
+
+= link_to 'Post an Ad', new_deal_path 
+
+
+
+
+%hr/
+%p
+  %span{:style => "font-family: 'lucida sans unicode', 'lucida grande', sans-serif; font-size: 12px;"} &copy; 2016 State University of New York Binghamton
+

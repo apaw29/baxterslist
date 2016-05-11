@@ -1,0 +1,56 @@
+<body>
+<p>
+  <b>Category:</b>
+  <%= @deal.category %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @deal.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @deal.description %>
+</p>
+
+<p>
+  <b>Contact Name:</b>
+  <%= @deal.contactname %>
+</p>
+
+<p>
+  <b>Contact Email:</b>
+  <%= @deal.contactemail %>
+</p>
+
+<p>
+  <b>Contact Phone Number:</b>
+  <%= @deal.contactnumber %>
+</p>
+
+<p>
+  <b>Post Date: </b>
+  <%= @deal.postdate %>
+</p>
+
+
+<p>
+<%= link_to 'Edit Info', edit_deal_path(@deal) %> 
+</p>
+
+<p>
+<%= button_to 'Delete', deal_path(@deal), :method => :delete, :confirm => 'Are you sure?' %> 
+</p>
+
+<p>
+<%= link_to 'Back to Display Deals', deals_path %> 
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><span style="font-family: 'lucida sans unicode', 'lucida grande', sans-serif; font-size: 12px;">&copy; 2016 State University of New York Binghamton</span></p>
+</body>
+
+file_field :deal, :postdate

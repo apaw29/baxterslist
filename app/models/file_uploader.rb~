@@ -1,0 +1,3 @@
+class FileUploader < ActiveRecord::Base
+  attr_accessible :attachment, :name
+end

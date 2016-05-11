@@ -1,0 +1,13 @@
+class Deal < ActiveRecord::Base
+  attr_accessible :category, :contactemail, :contactname, :contactnumber, :description, :postdate, :price, :title
+def self.all_category
+allCategory = []
+Deal.all.each do |deal|
+if (allCategory.find_index(deal.category) == nil)
+allCategory.push(deal.category)
+end
+end
+return allCategory
+end
+
+end

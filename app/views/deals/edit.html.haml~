@@ -1,0 +1,37 @@
+
+%h1 Edit Your Ad
+
+= form_tag deals_path(@deal), :method => :put do
+
+  = label :deal, :category, 'Category'
+  = select :deal, :category, ['Books','Housing','Electronics','Auto','Others']
+
+  = label :deal, :title, 'Title'
+  = text_field :deal, 'title'
+
+  = label :deal, :description, 'Description'
+  = text_field :deal, 'description'
+
+  = label :deal, :price, 'Price'
+  = text_field :deal, 'price'
+
+  = label :deal, :contactname, 'Contact Name'
+  = text_field :deal, 'contactname'
+
+  = label :deal, :contactnumber, 'Contact Number'
+  = text_field :deal, 'contactnumber'
+
+  = label :deal, :contactemail, 'Email'
+  = text_field :deal, 'contactemail'
+
+%p
+  = submit_tag 'Update'
+
+
+%p &nbsp;
+%p &nbsp;
+%p &nbsp;
+%p &nbsp;
+%hr/
+%p
+  %span{:style => "font-family: 'lucida sans unicode', 'lucida grande', sans-serif; font-size: 12px;"} &copy; 2016 State University of New York Binghamton

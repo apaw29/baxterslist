@@ -1,0 +1,54 @@
+<h1>Post An Ad</h1>
+
+<%= form_for @deal do |f| -%>
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select(%w[Books Electronics Housing Auto Others]) %>
+  </div>
+<p>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+<p>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+<p>
+  <div class="field">
+    <%= f.label :Price %>
+    <%= f.text_field :price %>
+  </div>
+<p>
+  <div class="field">
+    <%= f.label :contactname %>
+    <%= f.text_field :contactname %>
+  </div>
+<p>
+  <div class="field">
+    <%= f.label :contactemail %>
+    <%= f.text_field :contactemail %>
+  </div>
+<p>
+  <div class="field">
+    <%= f.label :contactnumber %>
+    <%= f.text_field :contactnumber %>
+  </div>
+
+  <div class="date_select">
+    <%= f.date_select :postdate %>
+  </div>
+<p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<p>
+
+<%= link_to 'Back to List of Ads', deals_path %>
+
+<hr/>
+<p>
+  <span> &copy; 2016 State University of New York Binghamton</span>
